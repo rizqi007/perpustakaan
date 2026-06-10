@@ -1,0 +1,31 @@
+{
+    "$schema": "https://json.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite"
+    },
+    "devDependencies": {
+        "@tailwindcss/forms": "^0.5.2",
+        "@tailwindcss/postcss": "^4.1.18",
+        "@tailwindcss/vite": "^4.0.0",
+        "axios": "^1.8.2",
+        "concurrently": "^9.0.1",
+        "laravel-vite-plugin": "^2.0.0",
+        "postcss": "^8.4.31",
+        "vite": "^7.0.4"
+    },
+    "dependencies": {
+        "@flaticon/flaticon-uicons": "^3.3.1",
+        "@fontsource/figtree": "^5.2.10",
+        "@fontsource/inter": "^5.2.8",
+        "@fontsource/outfit": "^5.2.8",
+        "@fontsource/plus-jakarta-sans": "^5.2.8",
+        "@fontsource/poppins": "^5.2.7",
+        "alpinejs": "^3.14.9",
+        "html2canvas": "^1.4.1",
+        "swiper": "^11.2.10",
+        "tailwindcss": "^4.1.18"
+    }
+}

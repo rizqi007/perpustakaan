@@ -1,0 +1,29 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('form_submissions', function (Blueprint $table) {
+            $table->text('kdt_text')->nullable()->after('isbn_number');
+            $table->string('kdt_file')->nullable()->after('kdt_text');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('form_submissions', function (Blueprint $table) {
+            $table->dropColumn(['kdt_text', 'kdt_file']);
+        });
+    }
+};

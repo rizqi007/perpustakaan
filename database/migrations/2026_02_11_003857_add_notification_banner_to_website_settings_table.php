@@ -1,0 +1,23 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::table('website_settings', function (Blueprint $table) {
+            $table->boolean('notification_banner_enabled')->default(false)->after('maintenance_message');
+            $table->string('notification_banner_text')->nullable()->after('notification_banner_enabled');
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::table('website_settings', function (Blueprint $table) {
+            $table->dropColumn(['notification_banner_enabled', 'notification_banner_text']);
+        });
+    }
+};

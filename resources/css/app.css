@@ -1,0 +1,64 @@
+@import "@fontsource/figtree";
+@import "@fontsource/inter";
+@import "@fontsource/plus-jakarta-sans";
+@import "@fontsource/poppins";
+@import "@fontsource/outfit";
+@import "@flaticon/flaticon-uicons/css/regular/rounded.css";
+@import "@flaticon/flaticon-uicons/css/solid/rounded.css";
+@import "tailwindcss";
+
+/*
+ * ===================================================================
+ * Filament v3 + Tailwind v4 Compatibility Layer
+ * ===================================================================
+ * Filament v3 uses Tailwind v3 utilities. TW4 loaded after Filament
+ * redefines class names. Key difference: TW4 uses CSS `translate`
+ * property instead of `transform: translateX(...)`. This is fine on
+ * its own, but we must NOT add extra transform overrides that stack.
+ * ===================================================================
+ */
+
+@theme inline {
+    --color-custom-50:  rgb(var(--c-50, 0 0 0));
+    --color-custom-100: rgb(var(--c-100, 0 0 0));
+    --color-custom-200: rgb(var(--c-200, 0 0 0));
+    --color-custom-300: rgb(var(--c-300, 0 0 0));
+    --color-custom-400: rgb(var(--c-400, 0 0 0));
+    --color-custom-500: rgb(var(--c-500, 0 0 0));
+    --color-custom-600: rgb(var(--c-600, 0 0 0));
+    --color-custom-700: rgb(var(--c-700, 0 0 0));
+    --color-custom-800: rgb(var(--c-800, 0 0 0));
+    --color-custom-900: rgb(var(--c-900, 0 0 0));
+    --color-custom-950: rgb(var(--c-950, 0 0 0));
+}
+
+/* ─── Toggle Switch Fix ───────────────────────────────────────────── */
+
+/* Track – background colors (TW4 can't resolve bg-custom-600) */
+button[role="switch"][aria-checked="false"],
+div[role="switch"][aria-checked="false"] {
+    background-color: rgb(209 213 219) !important;
+}
+
+button[role="switch"][aria-checked="true"],
+div[role="switch"][aria-checked="true"] {
+    background-color: rgba(var(--c-600, 245 158 11), 1) !important;
+}
+
+/* Dark mode */
+.dark button[role="switch"][aria-checked="false"],
+.dark div[role="switch"][aria-checked="false"] {
+    background-color: rgb(55 65 81) !important;
+}
+
+/* Handle – prevent translation stacking in TW4 + TW3 compatibility */
+button[role="switch"] > span,
+div[role="switch"] > span {
+    transform: none !important;
+}
+
+/* ─── Toggle Wrapper Spacing ──────────────────────────────────────── */
+.fi-fo-toggle-wrapper,
+div.flex.items-center.justify-between {
+    gap: 0.75rem !important;
+}
